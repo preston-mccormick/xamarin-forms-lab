@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="XamarinLab.PageList.PageListCollectionView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:XamarinLab.PageList"
+    Title="Page Menu"
+    x:DataType="local:PageListViewModel"
+    BackgroundColor="White">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style Class="PageButton" TargetType="Button">
+                <Setter Property="Padding" Value="20" />
+                <Setter Property="TextColor" Value="Black" />
+                <Setter Property="BackgroundColor" Value="LightBlue" />
+                <Setter Property="CornerRadius" Value="10" />
+            </Style>
+            <Style Class="SectionLabel" TargetType="Label">
+                <Setter Property="TextDecorations" Value="Underline" />
+                <Setter Property="TextColor" Value="Black" />
+                <Setter Property="Margin" Value="0,10" />
+                <Setter Property="FontSize" Value="Medium" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ScrollView Orientation="Vertical">
+        <AbsoluteLayout>
+            <CollectionView
+                Margin="15"
+                AbsoluteLayout.LayoutBounds="0.5,0,420,1"
+                AbsoluteLayout.LayoutFlags="XProportional,HeightProportional"
+                ItemsSource="{Binding Pages}">
+                <CollectionView.ItemsLayout>
+                    <GridItemsLayout Orientation="Vertical" VerticalItemSpacing="15" />
+                </CollectionView.ItemsLayout>
+
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="local:PageViewModel">
+                        <Button
+                            Command="{Binding ShowPageCommand}"
+                            StyleClass="PageButton"
+                            Text="{Binding DisplayName}" />
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+                <CollectionView.EmptyView>
+                    <Label
+                        HorizontalOptions="Center"
+                        Text="No pages found."
+                        TextColor="Gray" />
+                </CollectionView.EmptyView>
+            </CollectionView>
+        </AbsoluteLayout>
+    </ScrollView>
+</ContentPage>

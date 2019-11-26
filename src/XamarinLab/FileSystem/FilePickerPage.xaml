@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="XamarinLab.FileSystem.FilePickerPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    <ContentPage.Content>
+        <StackLayout>
+            <Button
+                Clicked="PickFileButtonClicked"
+                HorizontalOptions="CenterAndExpand"
+                Text="Pick a File"
+                VerticalOptions="Start" />
+            <Label
+                x:Name="SelectedPathLabel"
+                HorizontalOptions="CenterAndExpand"
+                Text="No file selected"
+                VerticalOptions="Start" />
+            <Button
+                x:Name="OpenFileButton"
+                Clicked="OpenFileButtonClicked"
+                HorizontalOptions="CenterAndExpand"
+                IsEnabled="False"
+                Text="Open File"
+                VerticalOptions="Start" />
+            <Label
+                x:Name="TextContentLabel"
+                HorizontalOptions="CenterAndExpand"
+                IsVisible="False"
+                Text=""
+                TextColor="Blue"
+                VerticalOptions="Start" />
+            <Label
+                x:Name="ErrorLabel"
+                HorizontalOptions="CenterAndExpand"
+                IsVisible="False"
+                Text=""
+                TextColor="Red"
+                VerticalOptions="Start" />
+            <Button
+                x:Name="CreateDatabaseButton"
+                Clicked="CreateDatabaseButtonClicked"
+                HorizontalOptions="CenterAndExpand"
+                Text="Open File"
+                VerticalOptions="EndAndExpand" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

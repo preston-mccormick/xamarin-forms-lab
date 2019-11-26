@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="XamarinLab.FileSystem.FileSystemInfoPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:XamarinLab.FileSystem"
+    x:DataType="local:IFileSystemInfo">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style Class="ItemLabel" TargetType="Label">
+                <Setter Property="Padding" Value="7" />
+                <Setter Property="TextColor" Value="White" />
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="BackgroundColor" Value="DarkGreen" />
+                <Setter Property="HorizontalOptions" Value="EndAndExpand" />
+            </Style>
+            <Style Class="ItemValue" TargetType="Label">
+                <Setter Property="Padding" Value="7" />
+                <Setter Property="TextColor" Value="Black" />
+                <Setter Property="BackgroundColor" Value="White" />
+                <Setter Property="HorizontalOptions" Value="Start" />
+                <Setter Property="VerticalOptions" Value="Center" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout x:Name="stack">
+                <Grid
+                    Margin="20,20" Padding="15,15" BackgroundColor="Gainsboro"
+                    ColumnSpacing="0" HorizontalOptions="Center" RowSpacing="13"
+                    VerticalOptions="Start">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Label Text="{Binding Path=SdcardInfo.Folder.DisplayName}"
+                        Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4"
+                        FontAttributes="Bold" FontSize="Medium" HorizontalOptions="Center" />
+                    <Label Text="Path:"
+                        Grid.Row="1" Grid.Column="0" StyleClass="ItemLabel" />
+                    <Label Text="{Binding Path=SdcardInfo.Folder.Path}"
+                        Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3"
+                        StyleClass="ItemValue" />
+                    <Label Text="Removable?"
+                        Grid.Row="2" Grid.Column="0" StyleClass="ItemLabel" />
+                    <Label Text="{Binding Path=SdcardInfo.Removable}"
+                        Grid.Row="2" Grid.Column="1" StyleClass="ItemValue" />
+                    <Label Text="State:"
+                        Grid.Row="2" Grid.Column="2" StyleClass="ItemLabel" />
+                    <Label Text="{Binding Path=SdcardInfo.StorageState}"
+                        Grid.Row="2" Grid.Column="3" StyleClass="ItemValue" />
+                    <Label Text="Can Read?"
+                        Grid.Row="3" Grid.Column="0" StyleClass="ItemLabel" />
+                    <Label Text="{Binding Path=SdcardInfo.Folder.CanRead}"
+                        Grid.Row="3" Grid.Column="1" StyleClass="ItemValue" />
+                    <Label Text="Can Write?"
+                        Grid.Row="3" Grid.Column="2" StyleClass="ItemLabel" />
+                    <Label Text="{Binding Path=SdcardInfo.Folder.CanWrite}"
+                        Grid.Row="3" Grid.Column="3" StyleClass="ItemValue" />
+                </Grid>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
