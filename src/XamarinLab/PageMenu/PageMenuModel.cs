@@ -5,70 +5,95 @@ using System.ComponentModel;
 using System.Reflection;
 using Xamarin.Forms;
 
-namespace XamarinLab.PageList
+namespace XamarinLab.PageMenu
 {
-    public class PageListViewModel
+    public class PageMenuModel
     {
         INavigation Navigation { get; }
-        public PageListViewModel(INavigation navigation, Assembly assembly, params Type[] exclude)
+        public PageMenuModel(INavigation navigation, Assembly assembly, params Type[] exclude)
         {
             Navigation = navigation;
-            Pages = new ObservableList<PageViewModel>(GetPages(assembly, exclude));
+            Pages = new ObservableList<PageModel>(GetPages(assembly, exclude));
         }
 
-        public PageListViewModel(INavigation navigation, params Type[] exclude) : this(navigation, Assembly.GetCallingAssembly(), exclude) { }
+        public PageMenuModel(INavigation navigation, params Type[] exclude) : this(navigation, Assembly.GetCallingAssembly(), exclude) { }
 
         public string Title { get; } = "Page Directory";
 
         public Action<Page> Navigate { get; set; } = delegate (Page p) { return; };
 
+        public ObservableList<PageModel> Pages { get; }
 
-        public ObservableList<PageViewModel> Pages { get; }
-
-
-
-        public List<PageCategory> GetPagesInCategories(List<Type> pageTypes)
+        public List<Group<PageModel>> GroupPagesByNamespace(List<Type> pageTypes)
         {
-            var cats = new Dictionary<string, List<PageViewModel>>();
+            var namespaces = new Dictionary<string, List<PageModel>>();
+            foreach (var type in pageTypes)
+            {
+                string ns = type.Namespace;
+                if (!namespaces.ContainsKey(type.Namespace))
+                {
+                    namespaces[type.Namespace] = new List<PageModel>();
+                }
+                namespaces[type.Namespace].Add(new PageModel(Navigation, type));
+            }
+
+            // Repackage as a list.
+            List<Group<PageModel>> groups = new List<Group<PageModel>>();
+            foreach (string ns in namespaces.Keys)
+            {
+                // Sort the pages by display name.
+                namespaces[ns].Sort();
+
+                groups.Add(new Group<PageModel>(ns, namespaces[ns]));
+            }
+            // Sort by Name
+            groups.Sort();
+
+            return groups;
+        }
+
+
+        public List<Group<PageModel>> GetPagesInCategories(List<Type> pageTypes)
+        {
+            var cats = new Dictionary<string, List<PageModel>>();
             foreach (var pageType in pageTypes)
             {
                 string category = GetCategory(pageType);
                 if (!cats.ContainsKey(category))
                 {
-                    cats[category] = new List<PageViewModel>();
+                    cats[category] = new List<PageModel>();
                 }
-                cats[category].Add(new PageViewModel(Navigation, pageType));
+                cats[category].Add(new PageModel(Navigation, pageType));
             }
 
             // Repackage as a list.
-            List<PageCategory> list = new List<PageCategory>();
+            List<Group<PageModel>> list = new List<Group<PageModel>>();
             foreach (string key in cats.Keys)
             {
                 // Sort the pages by display name.
-                cats[key].Sort((p1, p2) => (p1.DisplayName.CompareTo(p2.DisplayName)));
+                cats[key].Sort((p1, p2) => (p1.Name.CompareTo(p2.Name)));
 
-                list.Add(new PageCategory(key, cats[key]));
+                list.Add(new Group<PageModel>(key, cats[key]));
             }
 
-            // Sort the categories by display name.
-            list.Sort((c1, c2) => c1.Text.CompareTo(c2.Text));
+            list.Sort();
 
             return list;
         }
 
-        public List<PageViewModel> GetPages(Assembly assembly, params Type[] exclude)
+        public List<PageModel> GetPages(Assembly assembly, params Type[] exclude)
         {
-            List<PageViewModel> pageList = new List<PageViewModel>();
+            List<PageModel> pageList = new List<PageModel>();
 
             // Get the pages and group them by category.
             var pageTypes = GetPageTypes(assembly, exclude);
             foreach (var pageType in pageTypes)
             {
-                pageList.Add(new PageViewModel(Navigation, pageType));
+                pageList.Add(new PageModel(Navigation, pageType));
             }
 
             // Sort the pages by display name.
-            pageList.Sort((p1, p2) => (p1.DisplayName.CompareTo(p2.DisplayName)));
+            pageList.Sort((p1, p2) => (p1.Name.CompareTo(p2.Name)));
 
 
             return pageList;

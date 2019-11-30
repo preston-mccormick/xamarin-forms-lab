@@ -10,15 +10,21 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="PageList\ModalAttribute.cs" />
-    <Compile Remove="PageList\PageFinder.cs" />
-    <Compile Remove="PageList\ValueConveters.cs" />
+    <Compile Remove="PageMenu\ModalAttribute.cs" />
+    <Compile Remove="PageMenu\PageFinder.cs" />
+    <Compile Remove="PageMenu\ValueConveters.cs" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="sqlite-net-pcl" Version="1.6.292" />
     <PackageReference Include="Xamarin.Forms" Version="4.3.0.991211" />
     <PackageReference Include="Xamarin.Plugin.FilePicker" Version="2.1.34" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="PageMenu\PageMenuPage.xaml.cs">
+      <DependentUpon>PageMenuPage.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>

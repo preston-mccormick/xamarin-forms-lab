@@ -1,7 +1,7 @@
 ﻿using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using XamarinLab.PageList;
+using XamarinLab.PageMenu;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace XamarinLab
@@ -12,7 +12,7 @@ namespace XamarinLab
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new PageListCollectionView());
+            MainPage = new NavigationPage(new PageMenuPage());
         }
 
         protected override void OnStart()

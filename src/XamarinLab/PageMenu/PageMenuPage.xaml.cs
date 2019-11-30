@@ -5,16 +5,16 @@ using System.Reflection;
 using System.Windows.Input;
 using Xamarin.Forms;
 
-namespace XamarinLab.PageList
+namespace XamarinLab.PageMenu
 {
     [DisplayName("Page List"), Description("Remake of the Page List using a View-Model bound to a CollectionView control.")]
-    public partial class PageListCollectionView : ContentPage
+    public partial class PageMenuPage : ContentPage
     {
 
-        public PageListCollectionView()
+        public PageMenuPage()
         {
             InitializeComponent();
-            this.BindingContext = new PageListViewModel(Navigation, exclude: this.GetType());
+            this.BindingContext = new PageMenuModel(Navigation, exclude: this.GetType());
         }
 
     }
