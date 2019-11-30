@@ -6,6 +6,10 @@ using System.Collections.Specialized;
 
 namespace XamarinLab
 {
+    /// <summary>
+    /// Adds AddRange() and Sort() methods to ObservableCollection.
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
     [Serializable]
     public class ObservableList<T> : ObservableCollection<T>
     {

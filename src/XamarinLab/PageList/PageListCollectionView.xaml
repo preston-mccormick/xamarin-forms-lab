@@ -3,10 +3,8 @@
     x:Class="XamarinLab.PageList.PageListCollectionView"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:local="clr-namespace:XamarinLab.PageList"
-    Title="Page Menu"
-    x:DataType="local:PageListViewModel"
-    BackgroundColor="White">
+    xmlns:local="clr-namespace:XamarinLab.PageList" Title="Page Menu"
+    x:DataType="local:PageListViewModel" BackgroundColor="White">
     <ContentPage.Resources>
         <ResourceDictionary>
             <Style Class="PageButton" TargetType="Button">
@@ -23,11 +21,10 @@
             </Style>
         </ResourceDictionary>
     </ContentPage.Resources>
-    <ScrollView Orientation="Vertical">
+    <ScrollView Orientation="Vertical" >
         <AbsoluteLayout>
             <CollectionView
-                Margin="15"
-                AbsoluteLayout.LayoutBounds="0.5,0,420,1"
+                Margin="15" AbsoluteLayout.LayoutBounds="0.5,0,420,0.9"
                 AbsoluteLayout.LayoutFlags="XProportional,HeightProportional"
                 ItemsSource="{Binding Pages}">
                 <CollectionView.ItemsLayout>
@@ -36,17 +33,13 @@
 
                 <CollectionView.ItemTemplate>
                     <DataTemplate x:DataType="local:PageViewModel">
-                        <Button
-                            Command="{Binding ShowPageCommand}"
-                            StyleClass="PageButton"
-                            Text="{Binding DisplayName}" />
+                        <Button Command="{Binding ShowPageCommand}" Text="{Binding DisplayName}"
+                            StyleClass="PageButton" />
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
                 <CollectionView.EmptyView>
-                    <Label
-                        HorizontalOptions="Center"
-                        Text="No pages found."
-                        TextColor="Gray" />
+                    <Label Text="No pages found."
+                        HorizontalOptions="Center" TextColor="Gray" />
                 </CollectionView.EmptyView>
             </CollectionView>
         </AbsoluteLayout>
