@@ -1,7 +1,6 @@
 ﻿using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using XamarinLab.PageMenu;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace XamarinLab
@@ -12,7 +11,7 @@ namespace XamarinLab
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new PageMenuPage());
+            MainPage = new NavigationPage(new PageMenu.PageMenuPage());
         }
 
         protected override void OnStart()

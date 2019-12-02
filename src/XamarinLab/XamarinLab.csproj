@@ -10,8 +10,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="PageMenu\Group.cs" />
     <Compile Remove="PageMenu\ModalAttribute.cs" />
     <Compile Remove="PageMenu\PageFinder.cs" />
+    <Compile Remove="PageMenu\PageModel.cs" />
     <Compile Remove="PageMenu\ValueConveters.cs" />
   </ItemGroup>
 

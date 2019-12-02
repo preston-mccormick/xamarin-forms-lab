@@ -5,7 +5,7 @@ using System.Reflection;
 using System.Windows.Input;
 using Xamarin.Forms;
 
-namespace XamarinLab.PageMenu
+namespace PageMenu
 {
     [DisplayName("Page List"), Description("Remake of the Page List using a View-Model bound to a CollectionView control.")]
     public partial class PageMenuPage : ContentPage

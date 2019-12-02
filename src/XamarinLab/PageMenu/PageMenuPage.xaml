@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage
-    x:Class="XamarinLab.PageMenu.PageMenuPage"
+    x:Class="PageMenu.PageMenuPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:local="clr-namespace:XamarinLab.PageMenu" Title="Page Menu"
+    xmlns:local="clr-namespace:PageMenu" Title="Page Menu"
     x:DataType="local:PageMenuModel" BackgroundColor="White">
     <ContentPage.Resources>
         <ResourceDictionary>
@@ -13,20 +13,17 @@
                 <Setter Property="BackgroundColor" Value="LightBlue" />
                 <Setter Property="CornerRadius" Value="10" />
             </Style>
-            <Style Class="SectionLabel" TargetType="Label">
-                <Setter Property="TextDecorations" Value="Underline" />
-                <Setter Property="TextColor" Value="Black" />
-                <Setter Property="Margin" Value="0,10" />
-                <Setter Property="FontSize" Value="Medium" />
-            </Style>
         </ResourceDictionary>
     </ContentPage.Resources>
-    <ScrollView Orientation="Vertical">
+
+    <ScrollView Padding="15" Orientation="Vertical">
         <AbsoluteLayout>
+
             <CollectionView
-                Margin="15" AbsoluteLayout.LayoutBounds="0.5,0,420,0.9"
+                AbsoluteLayout.LayoutBounds="0.5,0,400,1"
                 AbsoluteLayout.LayoutFlags="XProportional,HeightProportional"
                 ItemsSource="{Binding Pages}">
+
                 <CollectionView.ItemsLayout>
                     <GridItemsLayout Orientation="Vertical" VerticalItemSpacing="15" />
                 </CollectionView.ItemsLayout>
@@ -37,11 +34,16 @@
                             StyleClass="PageButton" />
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
+
                 <CollectionView.EmptyView>
-                    <Label Text="No pages found."
-                        HorizontalOptions="Center" TextColor="Gray" />
+                    <Label Text="No Pages"
+                        FontSize="Medium" HorizontalOptions="CenterAndExpand" TextColor="Red"
+                        VerticalOptions="CenterAndExpand" />
                 </CollectionView.EmptyView>
+
             </CollectionView>
+
         </AbsoluteLayout>
     </ScrollView>
+
 </ContentPage>
