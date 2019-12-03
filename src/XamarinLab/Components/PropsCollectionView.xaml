@@ -7,12 +7,12 @@
     <ContentView.Content>
         <StackLayout
             x:Name="stack" x:DataType="local:PropsCollectionView"
-            BindingContext="{x:Reference this}">
+            BindingContext="{x:Reference this}" VerticalOptions="Start">
             <Label Text="{Binding Props.DisplayName}"
                 Padding="10" BackgroundColor="Gainsboro"
                 FontSize="Medium" HorizontalTextAlignment="Center"
                 TextColor="Black" />
-            <CollectionView ItemsSource="{Binding Props.Properties}">
+            <CollectionView ItemsSource="{Binding Props.Properties}" >
                 <CollectionView.ItemTemplate>
                     <DataTemplate x:DataType="local:PropModel">
                         <StackLayout Orientation="Horizontal">

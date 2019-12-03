@@ -8,10 +8,10 @@
     Title="Xamarin.Essentials: CollectionView"
     x:DataType="local:XamarinEssentialsModel">
     <ContentPage.Content>
-        <ScrollView>
             <StackLayout>
-                <components:PropsCollectionView Instance="{Binding MainDisplayInfo}" />
+                <components:PropsCollectionView Instance="{Binding MainDisplayInfo}" VerticalOptions="Start" />
+                <components:PropsCollectionView StaticType="{Binding AppInfoStaticType}" VerticalOptions="Start" />
+                <components:PropsCollectionView StaticType="{Binding FileSystemStaticType}" VerticalOptions="Start" />
             </StackLayout>
-        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

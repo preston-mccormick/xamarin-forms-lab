@@ -11,9 +11,18 @@ namespace XamarinLab.Essentials
         public XamarinEssentialsModel()
         {
             MainDisplayInfo = DeviceDisplay.MainDisplayInfo;
+            AppInfoStaticType = typeof(AppInfo);
+            FileSystemStaticType = typeof(Xamarin.Essentials.FileSystem);
         }
 
         [DisplayName("Main Display Info")]
         public DisplayInfo MainDisplayInfo { get; }
+
+        [DisplayName("App Info (static)")]
+        public Type AppInfoStaticType { get; }
+
+
+        [DisplayName("File System (static)")]
+        public Type FileSystemStaticType { get; }
     }
 }
