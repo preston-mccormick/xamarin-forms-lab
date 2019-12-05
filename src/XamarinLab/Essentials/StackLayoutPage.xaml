@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="XamarinLab.Essentials.StackLayoutPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:components="clr-namespace:XamarinLab.Components"
+    Title="Environment: StackLayout">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout VerticalOptions="Start">
+                <components:PropsCollectionView Props="{Binding MainDisplay}" VerticalOptions="Start" />
+                <components:PropsCollectionView Props="{Binding AppInfo}" VerticalOptions="Start" />
+                <components:PropsCollectionView Props="{Binding FileSystem}" />
+                <components:PropsCollectionView Props="{Binding Environment}" />
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

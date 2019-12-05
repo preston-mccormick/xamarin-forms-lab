@@ -68,7 +68,6 @@ namespace XamarinLab.Components
             {
                 Value = prop.GetValue(instance);
                 ValueText = Value?.ToString();
-                Color = Color.Black;
             }
             catch (Exception error)
             {
@@ -80,7 +79,6 @@ namespace XamarinLab.Components
                 {
                     ValueText = error.Message;
                 }
-                Color = Color.Red;
             }
 
             ReadOnly = !prop.CanWrite;
@@ -97,7 +95,5 @@ namespace XamarinLab.Components
         public string ValueText { get; }
 
         public bool ReadOnly { get; }
-
-        public Color Color { get; }
     }
 }

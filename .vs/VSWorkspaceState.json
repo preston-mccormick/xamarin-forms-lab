@@ -3,8 +3,9 @@
     "",
     "\\src",
     "\\src\\XamarinLab",
-    "\\src\\XamarinLab\\PageMenu"
+    "\\src\\XamarinLab\\Components",
+    "\\src\\XamarinLab\\Essentials"
   ],
-  "SelectedNode": "\\src\\XamarinLab\\App.xaml.cs",
+  "SelectedNode": "\\src\\XamarinLab\\Components\\PropsCollectionView.xaml",
   "PreviewInSolutionExplorer": false
 }

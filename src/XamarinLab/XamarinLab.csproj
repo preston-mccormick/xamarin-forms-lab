@@ -12,11 +12,24 @@
   <ItemGroup>
     <Compile Remove="Components\PropsView.cs" />
     <Compile Remove="Components\PropView.cs" />
+    <Compile Remove="Essentials\AppInfoView.xaml.cs" />
+    <Compile Remove="Essentials\DeviceDisplayPage.xaml.cs" />
+    <Compile Remove="Essentials\LayoutTestPage.xaml.cs" />
+    <Compile Remove="Essentials\StackLayoutPage.xaml.cs" />
+    <Compile Remove="FileSystem\FilePickerPage.xaml.cs" />
     <Compile Remove="PageMenu\Group.cs" />
     <Compile Remove="PageMenu\ModalAttribute.cs" />
     <Compile Remove="PageMenu\PageFinder.cs" />
     <Compile Remove="PageMenu\PageModel.cs" />
     <Compile Remove="PageMenu\ValueConveters.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Remove="Essentials\AppInfoView.xaml" />
+    <EmbeddedResource Remove="Essentials\DeviceDisplayPage.xaml" />
+    <EmbeddedResource Remove="Essentials\LayoutTestPage.xaml" />
+    <EmbeddedResource Remove="Essentials\StackLayoutPage.xaml" />
+    <EmbeddedResource Remove="FileSystem\FilePickerPage.xaml" />
   </ItemGroup>
 
   <ItemGroup>
@@ -27,6 +40,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Components\PropsView.xaml.cs">
+      <DependentUpon>PropsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Essentials\CollectionViewPage.xaml.cs">
+      <DependentUpon>CollectionViewPage.xaml</DependentUpon>
+    </Compile>
     <Compile Update="PageMenu\PageMenuPage.xaml.cs">
       <DependentUpon>PageMenuPage.xaml</DependentUpon>
     </Compile>
@@ -36,19 +55,10 @@
     <EmbeddedResource Update="Colors\ColorsPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Essentials\AppInfoView.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Essentials\DeviceDisplayPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Essentials\PropsCollectionPage.xaml">
+    <EmbeddedResource Update="Essentials\CollectionViewPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="FileSystem\CreateDatabasePage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Update="FileSystem\FilePickerPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="FileSystem\FileSystemInfoPage.xaml">

@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView
+    x:Class="XamarinLab.Components.PropsCollectionView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:XamarinLab.Components"
+    x:Name="this"
+    HorizontalOptions="Fill"
+    VerticalOptions="Start">
+    <ContentView.Content>
+        <StackLayout
+            x:DataType="local:PropsCollectionView"
+            BindingContext="{x:Reference this}"
+            Spacing="0">
+            <Label Text="{Binding Props.DisplayName}"
+                Padding="11"
+                BackgroundColor="Gainsboro"
+                FontSize="Large"
+                HorizontalTextAlignment="Center"
+                TextColor="Black"
+                TextDecorations="None" />
+            <StackLayout
+                Padding="11"
+                BackgroundColor="WhiteSmoke"
+                BindableLayout.ItemsSource="{Binding Props.Properties}"
+                Spacing="11">
+                <BindableLayout.ItemTemplate>
+                    <DataTemplate x:DataType="local:PropModel">
+                        <StackLayout
+                            Padding="7,0"
+                            Orientation="Horizontal"
+                            Spacing="0">
+                            <Label Text="{Binding DisplayName}"
+                                FontAttributes="Bold"
+                                FontSize="Small"
+                                HorizontalTextAlignment="Center"
+                                LineBreakMode="WordWrap"
+                                MaxLines="2"
+                                MinimumWidthRequest="130"
+                                TextColor="Default"
+                                VerticalOptions="Center"
+                                VerticalTextAlignment="Center"
+                                WidthRequest="130" />
+                            <Frame
+                                Padding="7"
+                                BackgroundColor="White"
+                                CornerRadius="3"
+                                HasShadow="True"
+                                HorizontalOptions="FillAndExpand">
+                                <Label Text="{Binding ValueText}"
+                                    FontSize="Medium"
+                                    LineBreakMode="TailTruncation"
+                                    MaxLines="3" />
+                            </Frame>
+                        </StackLayout>
+                    </DataTemplate>
+                </BindableLayout.ItemTemplate>
+            </StackLayout>
+        </StackLayout>
+    </ContentView.Content>
+</ContentView>

@@ -11,7 +11,7 @@ using XamarinLab.Components;
 
 namespace XamarinLab.Essentials
 {
-    [DisplayName("Xamarin.Essentials: CollectionView")]
+    [DisplayName("Environment: CollectionView")]
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class PropsCollectionPage : ContentPage
 	{
@@ -19,10 +19,7 @@ namespace XamarinLab.Essentials
 		{
 			InitializeComponent ();
 
-            //BindingContext = new PropsModel(DeviceDisplay.MainDisplayInfo);
-            BindingContext = new XamarinEssentialsModel();
-            //BindingContext = new PropsModel(typeof(Xamarin.Essentials.DeviceDisplay));
-            //propsView.BindingContext = new PropsModel(DeviceDisplay.MainDisplayInfo);
+            BindingContext = new CollectionViewPageModel();
         }
 	}
 }

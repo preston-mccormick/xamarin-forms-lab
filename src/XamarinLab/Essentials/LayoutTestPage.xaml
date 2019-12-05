@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="XamarinLab.Essentials.LayoutTestPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:components="clr-namespace:XamarinLab.Components"
+    xmlns:local="clr-namespace:XamarinLab.Essentials"
+    Title="Scroll Layout Testing" x:DataType="local:CollectionViewPageModel">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Spacing="5" BackgroundColor="Black">
+                <components:BlockView />
+                <components:BlockView />
+                <components:BlockView />
+                <components:BlockView />
+                <components:BlockView />
+                <components:BlockView />
+                <components:BlockView />
+                <components:BlockView />
+                <components:BlockView />
+                <components:BlockView />
+                <components:BlockView />
+                <components:BlockView />
+                <components:BlockView />
+                <components:BlockView />
+                <components:BlockView />
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

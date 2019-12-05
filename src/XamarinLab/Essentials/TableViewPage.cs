@@ -4,12 +4,12 @@ using Xamarin.Forms;
 
 namespace XamarinLab.Essentials
 {
-    [DisplayName("Xamarin.Essentials: TableView")]
+    [DisplayName("Environment: TableView")]
     public class TableViewPage : ContentPage
     {
         public TableViewPage()
         {
-            Title = "Xamarin.Essentials: TableView";
+            Title = "Environment: TableView";
             TableRoot root = new TableRoot("Xamarin.Essentials")
             {
                 new TableSection("App Info")
@@ -18,7 +18,10 @@ namespace XamarinLab.Essentials
                     new EntryCell { Label = "Name", Text = AppInfo.Name, IsEnabled = false },
                     new EntryCell { Label = "Version", Text = AppInfo.VersionString, IsEnabled = false },
                     new EntryCell { Label = "Build", Text = AppInfo.BuildString, IsEnabled = false },
-                    new ViewCell { View = new Frame { Padding=new Thickness(10, 1), Content = new Button { Text = "Show App Settings", Command = new Command(AppInfo.ShowSettingsUI), HorizontalOptions=LayoutOptions.Center } }
+                    new ViewCell { View = new Frame { Padding=new Thickness(10, 1), BackgroundColor=Color.Transparent,
+                        Content = new Button { Text = "Show App Settings",
+                            Command = new Command(AppInfo.ShowSettingsUI),
+                            HorizontalOptions =LayoutOptions.Center } }
                     }
                 },
                 new TableSection("Device Info")
@@ -35,7 +38,7 @@ namespace XamarinLab.Essentials
             };
             Content = new TableView
             {
-                Intent = TableIntent.Settings,
+                Intent = TableIntent.Data,
                 Root = root
             };
         }

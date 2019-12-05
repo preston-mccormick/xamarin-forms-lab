@@ -14,9 +14,9 @@ namespace XamarinLab.Components
     propertyChanged: HandleInstanceChanged);
 
         public static readonly BindableProperty PropsProperty = BindableProperty.Create(
-"Props",        // the name of the bindable property
-typeof(PropsModel),     // the bindable property type
-typeof(PropsCollectionView)   // the parent object type
+"Props",
+typeof(PropsModel),
+typeof(PropsCollectionView)
 );
 
         public static readonly BindableProperty StaticTypeProperty = BindableProperty.Create(
