@@ -1,4 +1,4 @@
-# xamarin-lab  
-Xamarin.Forms, fiddle-dee-dee!  
-Xamarin Forms? fiddle-dee-da.  
-Android, iOS, and Windows  
+# xamarin-forms-lab  
+Experiments in Xamarin.Forms for iOS, Android, and Windows
+
+Xamarin.Forms, fiddle-dee-dee!
