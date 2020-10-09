@@ -46,6 +46,9 @@
     <Compile Update="Essentials\CollectionViewPage.xaml.cs">
       <DependentUpon>CollectionViewPage.xaml</DependentUpon>
     </Compile>
+    <Compile Update="Essentials\EssentialsCarouselPage.xaml.cs">
+      <DependentUpon>EssentialsCarouselPage.xaml</DependentUpon>
+    </Compile>
     <Compile Update="PageMenu\PageMenuPage.xaml.cs">
       <DependentUpon>PageMenuPage.xaml</DependentUpon>
     </Compile>
@@ -56,6 +59,9 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Essentials\CollectionViewPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Essentials\EssentialsCarouselPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="FileSystem\CreateDatabasePage.xaml">
