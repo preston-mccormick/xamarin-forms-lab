@@ -1,4 +1,3 @@
-# xamarin-forms-lab  
-Experiments in Xamarin.Forms for iOS, Android, and Windows
+Lab - Xamarin Forms
 
-Xamarin.Forms, fiddle-dee-dee!
+Experiments in Xamarin.Forms for iOS, Android, and Windows
