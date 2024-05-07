@@ -1,4 +1,4 @@
-## Xamarin Forms Lab - Forms
+## Xamarin Forms Lab
 
 Learning Xamarin.Forms
 
